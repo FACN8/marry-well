@@ -2,11 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
+const auth = require('./authenticate');
+
 router.get('/', (req, res) => {
   res.send('Testing if the server work !!!');
 });
 
-router.get('/test', (req, res) => {
-  res.json({ name: 'Mahmod', age: 26 });
-});
+router.post('/authenticate', auth.authenticate);
+
 module.exports = router;
